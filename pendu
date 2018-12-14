@@ -1,25 +1,26 @@
-                    ## Jeu de Pendu ##
-                    
+                         #### Jeu Pendu ####
+                   ## Theo Gamito - Tim Delorme ##
+
 from random import *
 from copy import deepcopy
 
 
-#variables globales
-
 def reset():
-    global replay   
+  
     global wrong
     global go_again
     global chosen
     
-    replay = 0
-    wrong = 0
-    go_again = 0
-    chosen = []
 
+    wrong = 0
+    go_again = 1
+    chosen = []
     
 #procédure: choisi un mot ; crée une liste vide = liste joueur
 def choose_word():
+    
+    global word
+    global p_word
     choice_w = [ "pewdiepie" , "frere" , "famille" , "youtube" , "nine" , "horloge" ,\
                  "lunette" , "partition" , "manteau" , "bescherelle" , "python" ]
     n = randint(0,10)
@@ -54,7 +55,8 @@ def mistake():
 
     if a in lowercase:
         n += 1
-    elif a in chosen:
+
+    if a in chosen:
         n += 1
 
     return n
@@ -62,16 +64,12 @@ def mistake():
 
 #fonction: prend la lettre entrée par le joueur et renvoie sa liste avec ou sans la lettre
 def choose_letter():
+    
     i = 0
     n = 0
     global wrong
     global chosen
-    
-    print ("".join(p_word))
-
-    word = ["f","r","e","r","e"]            #### just for tests ####
-    p_word = [" _ "," _ "," _ "," _ "," _ "]
-
+    global a
 
     for e in word:
         if word[i] == a:
@@ -81,71 +79,76 @@ def choose_letter():
 
     if n > 0 :
         print ("il y a", n ,"'", a ,"'","dans le mot !")
+        print("")
     else:
         print ( a , "n'est pas contenu dans ce mot.")
         wrong += 1
+        print ("Si vous vous trompez encore", 8-wrong , "fois, vous serez pendu!")
+        print("")
 
     chosen.append(a)
 
     
-
-
 def game_stage():
+    global word
+    global p_word
+    global go_again
+    
     if word == p_word:
         go_again = 0
-        print ("Bravo vous avez réussi a trouver le bon mot:", word)
+        print ("Bravo vous avez réussi a trouver le bon mot:", "".join(word))
     elif wrong == 8:
         go_again = 0
-        print("malheuresement vous avez été pendu, le mot était:", word)
+        print("malheuresement vous avez été pendu, le mot était:", "".join(word))
         
 
 
 def again():
+    global replay
+    
     liste_oui = ['oui','Oui','oUi','ouI','OUi','oUI','OuI','OUI']
     liste_non = ['non','Non','nOn','noN','NOn','nON','NoN','NON']
     print("Voulez vous rejouer?")
     inp = input()
     if inp in liste_oui:
-        go_again = 1
+        replay = 1
     elif inp in liste_non:
-        go_again = 0
+        replay = 0
     else:
         print("Oops! Une erreur est survenu, entrez Oui ou Non")
         again ()     
 
-
-#### preview of program #### ---- is it ok? (teacher)
-
-#while replay = 1:
-#    reset()
-#    choose_word()
+#procédure: organisation du programme
+def game():
+    replay = 1
+    global go_again
+    global a
     
-#    while go_again = 1:
+    while replay == 1:
+        reset()
+        choose_word()
+    
+        while go_again == 1:
+
+            print("voici votre mot:")
+            print ("".join(p_word))
+            a = input("choisir une lettre: ")
+            n = mistake()
         
-#        a = input("choisir une lettre: ")
-#        mistake()
-        
-#        if mistake == 0
-#            choose_letter()
-#            game_stage()
-#        elif mistake == 1:
-#            print("vous avez déja choisi cette lettre, essayez en une autre."
-#        else :
-#            print("oops! une erreur est survenue, vous avez du faire"\
-#                  "une faut de frappe, réessayez.")
+            if n == 1:
+                choose_letter()
+                game_stage()
+            elif n == 2:
+                print("vous avez déja choisi cette lettre, essayez en une autre.")
+            else :
+                print("oops! une erreur est survenue, vous avez du faire "\
+                "une faute de frappe, réessayez.")
 
-#    again()
-           
+        again()
+
+    print ("merci d'avoir jouer! Au revoir.")
 
 
 
-
-
-
-
-
-
-
-
-
-
+#execution du programme
+game()

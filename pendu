@@ -80,14 +80,18 @@ def game_stage():
 
 
 def again():
-
-    print("")
-
-    #ask if want to replay
-
-
-
-
+    liste_oui = ['oui','Oui','oUi','ouI','OUi','oUI','OuI','OUI']
+    liste_non = ['non','Non','nOn','noN','NOn','nON','NoN','NON']
+    print("Voulez vous rejouer?")
+    inp = input()
+    if inp in liste_oui:
+        go_again = 1
+    elif inp in liste_non:
+        go_again = 0
+    else:
+        print("Oops! Une erreur est survenu, entrez Oui ou Non")
+        again ()
+        
 reset()
 print (wrong)
 choose_letter()

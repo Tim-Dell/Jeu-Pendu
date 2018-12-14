@@ -1,0 +1,131 @@
+                    ## Jeu de Pendu ##
+
+from random import *
+from copy import deepcopy
+
+
+#variables globales
+
+def reset():
+    global replay   
+    global wrong
+    global go_again
+    
+    replay = 0
+    wrong = 0
+    go_again = 0
+
+    
+#procédure: choisi un mot ; crée une liste vide = liste joueur
+def choose_word():
+    choice_w = [ "pewdiepie" , "frere" , "famille" , "youtube" , "nine" , "horloge" ,\
+                 "lunette" , "partition" , "manteau" , "bescherelle" , "python" ]
+    n = randint(0,10)
+    i = 0
+    
+    word_s = choice_w[n]
+    word = list(word_s)
+    
+    p_word = deepcopy(word)
+    for e in p_word:
+        p_word[i] = " _ "
+        i += 1
+
+def mistake():
+
+    print("")
+    #do list with caps: transfrom cap into lowercase
+    #if not part of list of alphabet (return 1)
+    #else (return 0)
+    #
+    #create list with all letters chosen
+    #if letter already chosen send error message
+
+
+#fonction: prend la lettre entrée par le joueur et renvoie sa liste avec ou sans la lettre
+def choose_letter():
+    i = 0
+    n = 0
+    global wrong
+
+    word = ["f","r","e","r","e"]            #### just for tests ####
+    p_word = [" _ "," _ "," _ "," _ "," _ "]
+
+
+    for e in word:
+        if word[i] == a:
+            p_word[i] = a
+            n += 1
+        i += 1
+
+    if n > 0 :
+        print ("il y a", n ,"'", a ,"'","dans le mot !")
+    else:
+        print ( a , "n'est pas contenu dans ce mot.")
+        wrong += 1
+
+    
+
+    print ("".join(p_word))
+
+
+def game_stage():
+    if word == p_word:
+        go_again = 0
+        print ("Bravo vous avez réussi a trouver le bon mot:", word)
+    elif wrong == 8:
+        go_again = 0
+        print("malheuresement vous avez été pendu, le mot était:", word)
+        
+
+
+def again():
+
+    print("")
+
+    #ask if want to replay
+
+
+
+
+reset()
+print (wrong)
+choose_letter()
+print (wrong)
+
+
+#### preview of program #### ---- is it ok? (teacher)
+
+#while replay = 1:
+#    reset()
+#    choose_word()
+    
+#    while go_again = 1:
+        
+#        a = input("choisir une lettre: ")
+#        mistake()
+        
+#        if mistake == 0
+#            choose_letter()
+#            game_stage()
+#        elif mistake == 1:
+#            print("vous avez déja choisi cette lettre, essayez en une autre."
+#        else :
+#            print("oops! une erreur est survenue, vous avez du faire"\
+#                  "une faut de frappe, réessayez.")
+
+#    again()
+        
+
+
+
+
+
+
+
+
+
+
+
+
+

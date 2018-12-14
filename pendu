@@ -1,4 +1,4 @@
-                    ## Jeu de Pendu #
+                    ## Jeu de Pendu ##
 
 from random import *
 from copy import deepcopy

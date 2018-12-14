@@ -1,5 +1,5 @@
                     ## Jeu de Pendu ##
-
+#noncenonce
 from random import *
 from copy import deepcopy
 

@@ -10,10 +10,12 @@ def reset():
     global replay   
     global wrong
     global go_again
+    global chosen
     
     replay = 0
     wrong = 0
     go_again = 0
+    chosen = []
 
     
 #procédure: choisi un mot ; crée une liste vide = liste joueur
@@ -31,15 +33,31 @@ def choose_word():
         p_word[i] = " _ "
         i += 1
 
+
 def mistake():
 
-    print("")
-    #do list with caps: transfrom cap into lowercase
-    #if not part of list of alphabet (return 1)
-    #else (return 0)
-    #
-    #create list with all letters chosen
-    #if letter already chosen send error message
+    global a
+    global chosen
+    i = 0
+    j = 0
+    y = 0
+    n = 0
+    caps = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U",\
+            "V","W","X","Y","Z",]
+    lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s",\
+            "t","u","v","w","x","y","z",]
+
+    for e in caps:
+        if a == caps[i]:
+            a = lowercase[i]
+        i += 1
+
+    if a in lowercase:
+        n += 1
+    elif a in chosen:
+        n += 1
+
+    return n
 
 
 #fonction: prend la lettre entrée par le joueur et renvoie sa liste avec ou sans la lettre
@@ -47,6 +65,9 @@ def choose_letter():
     i = 0
     n = 0
     global wrong
+    global chosen
+    
+    print ("".join(p_word))
 
     word = ["f","r","e","r","e"]            #### just for tests ####
     p_word = [" _ "," _ "," _ "," _ "," _ "]
@@ -64,9 +85,9 @@ def choose_letter():
         print ( a , "n'est pas contenu dans ce mot.")
         wrong += 1
 
-    
+    chosen.append(a)
 
-    print ("".join(p_word))
+    
 
 
 def game_stage():
@@ -90,12 +111,7 @@ def again():
         go_again = 0
     else:
         print("Oops! Une erreur est survenu, entrez Oui ou Non")
-        again ()
-        
-reset()
-print (wrong)
-choose_letter()
-print (wrong)
+        again ()     
 
 
 #### preview of program #### ---- is it ok? (teacher)

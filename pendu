@@ -1,5 +1,5 @@
                     ## Jeu de Pendu ##
-#noncenonce
+                    
 from random import *
 from copy import deepcopy
 
@@ -135,7 +135,7 @@ def again():
 #                  "une faut de frappe, réessayez.")
 
 #    again()
-        
+           
 
 
 

@@ -83,8 +83,11 @@ def choose_letter():
     else:
         print ( a , "n'est pas contenu dans ce mot.")
         wrong += 1
-        print ("Si vous vous trompez encore", 8-wrong , "fois, vous serez pendu!")
-        print("")
+        if wrong < 8:
+            print ("Si vous vous trompez encore", 8-wrong , "fois, vous serez pendu!")
+            print("")
+        else:
+            print("")
 
     chosen.append(a)
 

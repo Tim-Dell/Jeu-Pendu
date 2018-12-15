@@ -25,18 +25,21 @@ def length():
     if inp == "court" or inp == "Court" or inp == "COURT":
         d = 0
         print("Vous avez choisi:", inp)
+        return d
     elif inp == "long" or inp == "Long" or inp == "LONG":
         d = 1
         print("Vous avez choisi:", inp)
+        return d
     elif inp == "infini" or inp == "Infini" or inp == "INFINI":
         d = 2
         print("Vous avez choisi:", inp)
+        return d
     else:
         print("Oops! Une erreur est survenu, entrez Court, long ou infini.")
         length()
 
     print ("")
-    return d
+    
 
 #procédure: choisi un mot ; crée une liste vide = liste joueur
 def choose_word(d):

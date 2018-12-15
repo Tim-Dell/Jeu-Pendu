@@ -16,17 +16,62 @@ def reset():
     go_again = 1
     chosen = []
     
+def length():
+    d = 0
+    print("voulez vous un mot; court, long ou infini?")
+    print("")
+    inp = input()
+
+    if inp == "court" or inp == "Court" or inp == "COURT":
+        d = 0
+        print("Vous avez choisi:", inp)
+    elif inp == "long" or inp == "Long" or inp == "LONG":
+        d = 1
+        print("Vous avez choisi:", inp)
+    elif inp == "infini" or inp == "Infini" or inp == "INFINI":
+        d = 2
+        print("Vous avez choisi:", inp)
+    else:
+        print("Oops! Une erreur est survenu, entrez Court, long ou infini.")
+        length()
+
+    print ("")
+    return d
+
 #procédure: choisi un mot ; crée une liste vide = liste joueur
-def choose_word():
+def choose_word(d):
     
     global word
     global p_word
-    choice_w = [ "pewdiepie" , "frere" , "famille" , "youtube" , "nine" , "horloge" ,\
-                 "lunette" , "partition" , "manteau" , "bescherelle" , "python" ]
-    n = randint(0,10)
+    choice_w = [ [ "bol" , "sel" , "abri" , "clou" , "fuir" , "abime" , "aimer" ,\
+             "banal" , "echec" , "epice" , "fayot" , "wagon" , "acacia" ,\
+             "abuser" , "besoin" , "boogie" , "bovins" , "clause" , "ecluse" ,\
+             "fureur" , "macles" , "zygotes" , "torpeur" , "resumer" ,\
+             "joindre" , "barbecue" , "zoochore" , "tutoyeur" , "uniforme" ] ,\
+                 \
+                 [ "abdominal" , "affronter" , "analogue" , "tragedien" , "sulfurage" ,\
+             "accessoire" , "amareyeurs" , "benzylique" , "degonflant" ,\
+             "indemniser" , "perspicace" , "bescherelle" , "accommodant" ,\
+             "caulinaire" , "decroissant" , "holographie" , "vulgarisant" ,\
+             "affectionner" , "proteiformes" , "miniaturiser" , "embranchement" ,\
+             "brutalisation" , "visualisation" , "tetraplegique" ] ,\
+                 \
+                 [ "instrumentalisation" , "desindustrialisation" , "embourgeoisement" ,\
+             "heterogeneisant" , "autodetermination" , "commercialisation" ,\
+             "deshumanisation" , "dysfonctionnelles" , "informatisation" ,\
+             "intercommunautaire" , "neocolonialisme" , "anticonstitutionnel" ,\
+             "intergouvenementalisation" , "hippocampelephantocamelos" ] ]
+
     i = 0
     
-    word_s = choice_w[n]
+    if d == 0:
+        n = randint(0,28)
+    elif d == 1:
+        n = randint(0,23)
+    else:
+        n = randint(0,13)
+    
+    word_s = choice_w[d][n]
     word = list(word_s)
     
     p_word = deepcopy(word)
@@ -137,7 +182,7 @@ def game():
             n = mistake()
         
             if n == 1:
-                choose_letter()
+                choose_letter(length())
                 game_stage()
             elif n == 2:
                 print("vous avez déja choisi cette lettre, essayez en une autre.")

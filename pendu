@@ -175,7 +175,7 @@ def game():
     
     while replay == 1:
         reset()
-        choose_word()
+        choose_word(length())
     
         while go_again == 1:
 
@@ -185,7 +185,7 @@ def game():
             n = mistake()
         
             if n == 1:
-                choose_letter(length())
+                choose_letter()
                 game_stage()
             elif n == 2:
                 print("vous avez déja choisi cette lettre, essayez en une autre.")

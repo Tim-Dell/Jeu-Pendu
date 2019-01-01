@@ -3,7 +3,8 @@
 
 from random import *
 from copy import deepcopy
-
+from turtle import *
+from math import *
 
 def reset():
   
@@ -110,7 +111,6 @@ def mistake():
 
 #fonction: prend la lettre entrée par le joueur et renvoie sa liste avec ou sans la lettre
 def choose_letter():
-    
     i = 0
     n = 0
     global wrong
@@ -136,7 +136,7 @@ def choose_letter():
             print("")
 
     chosen.append(a)
-
+    
     
 def game_stage():
     global word
@@ -163,9 +163,116 @@ def again():
         replay = 1
     elif inp in liste_non:
         replay = 0
+        print ("merci d'avoir joué! Au revoir.")
     else:
         print("Oops! Une erreur est survenu, entrez Oui ou Non")
-        again ()     
+        again ()
+
+
+
+def draw():
+    global a
+    stylo = Turtle()
+    stylo.width(2)
+    stylo.penup()
+    stylo.ht()
+    stylo.forward(125)
+    stylo.pendown()
+    stylo.forward(50)
+    stylo.left(90)
+    stylo.forward(90-(45*sqrt(3)/2))
+    stylo.left(90)
+    stylo.forward(50)
+    stylo.left(90)
+    stylo.forward(90-(45*sqrt(3)/2))
+    stylo.penup()
+    stylo.left(90)
+    stylo.back(125)
+    stylo.pendown()
+
+    if wrong == 1:
+        stylo.forward(100)
+        stylo.back(200)
+        stylo.forward(100)
+        
+    if wrong == 2:
+        stylo.left(90)
+        stylo.forward(250)
+
+    if wrong == 3:
+        stylo.goto(0,250)
+        stylo.right(90)
+        stylo.forward(30)
+        stylo.left(135)
+        stylo.forward(30*sqrt(2))
+        stylo.left(135)
+        stylo.forward(30)
+        stylo.back(150)
+        
+    if wrong == 4:
+        stylo.penup()
+        stylo.goto(150,250)
+        stylo.pendown()
+        stylo.right(90)
+        stylo.forward(30)
+        stylo.right(90)
+        stylo.circle(25)
+        stylo.left(90)
+        stylo.penup()
+        stylo.forward(50)
+        
+    if wrong == 5:
+        stylo.penup()
+        stylo.goto(150,170)
+        stylo.pendown()
+        stylo.right(90)
+        stylo.forward(80)
+        
+    if wrong == 6:
+        stylo.penup()
+        stylo.goto(150,90)
+        stylo.pendown()
+        stylo.right(90)
+        stylo.back(50)
+        stylo.right(90)
+        stylo.forward(30)
+        stylo.right(90)
+        stylo.circle(5)
+        stylo.left(90)
+        stylo.back(60)
+        stylo.left(90)
+        stylo.circle(5)
+        stylo.right(90)
+        stylo.forward(30)
+        stylo.left(90)
+        
+    if wrong == 7:
+        stylo.penup()
+        stylo.goto(150,140)
+        stylo.pendown()
+        stylo.right(90)
+        stylo.forward(50)
+        stylo.right(30)
+        stylo.forward(45)
+        stylo.back(45)
+        stylo.left(60)
+        stylo.forward(45)
+    
+    if wrong == 8:
+        stylo.penup()
+        stylo.goto(125,0)
+        stylo.pendown()
+        stylo.color('white')
+        stylo.width(2)
+        stylo.forward(50)
+        stylo.left(90)
+        stylo.forward(90-(45*sqrt(3)/2))
+        stylo.left(90)
+        stylo.forward(50)
+        stylo.left(90)
+        stylo.forward(90-(45*sqrt(3)/2))
+        
+        
 
 #procédure: organisation du programme
 def game():
@@ -176,6 +283,7 @@ def game():
     while replay == 1:
         reset()
         choose_word(length())
+        
     
         while go_again == 1:
 
@@ -183,10 +291,12 @@ def game():
             print ("".join(p_word))
             a = input("choisir une lettre: ")
             n = mistake()
-        
+
+
             if n == 1:
                 choose_letter()
                 game_stage()
+                draw()
             elif n == 2:
                 print("vous avez déja choisi cette lettre, essayez en une autre.")
             else :
@@ -195,7 +305,6 @@ def game():
 
         again()
 
-    print ("merci d'avoir jouer! Au revoir.")
 
 
 

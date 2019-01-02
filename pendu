@@ -171,24 +171,24 @@ def again():
 
 
 def draw():
-    global a
-    stylo = Turtle()
-    stylo.width(2)
-    stylo.penup()
-    stylo.ht()
-    stylo.forward(125)
-    stylo.pendown()
-    stylo.forward(50)
-    stylo.left(90)
-    stylo.forward(90-(45*sqrt(3)/2))
-    stylo.left(90)
-    stylo.forward(50)
-    stylo.left(90)
-    stylo.forward(90-(45*sqrt(3)/2))
-    stylo.penup()
-    stylo.left(90)
-    stylo.back(125)
-    stylo.pendown()
+    if wrong == 0
+        stylo = Turtle()
+        stylo.width(2)
+        stylo.penup()
+        stylo.ht()
+        stylo.forward(125)
+        stylo.pendown()
+        stylo.forward(50)
+        stylo.left(90)
+        stylo.forward(90-(45*sqrt(3)/2))
+        stylo.left(90)
+        stylo.forward(50)
+        stylo.left(90)
+        stylo.forward(90-(45*sqrt(3)/2))
+        stylo.penup()
+        stylo.left(90)
+        stylo.back(125)
+        stylo.pendown()
 
     if wrong == 1:
         stylo.forward(100)

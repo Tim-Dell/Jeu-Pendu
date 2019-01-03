@@ -1,4 +1,4 @@
-                         #### Jeu Pendu ####
+                      #### Jeu Pendu ####
                    ## Theo Gamito - Tim Delorme ##
 
 from random import *
@@ -171,11 +171,11 @@ def again():
 
 
 def draw():
-    if wrong == 0
-        stylo = Turtle()
-        stylo.width(2)
+    stylo = Turtle()
+    stylo.width(4)
+    stylo.ht()
+    if wrong == 1:
         stylo.penup()
-        stylo.ht()
         stylo.forward(125)
         stylo.pendown()
         stylo.forward(50)
@@ -189,8 +189,6 @@ def draw():
         stylo.left(90)
         stylo.back(125)
         stylo.pendown()
-
-    if wrong == 1:
         stylo.forward(100)
         stylo.back(200)
         stylo.forward(100)
@@ -263,7 +261,6 @@ def draw():
         stylo.goto(125,0)
         stylo.pendown()
         stylo.color('white')
-        stylo.width(2)
         stylo.forward(50)
         stylo.left(90)
         stylo.forward(90-(45*sqrt(3)/2))
@@ -271,8 +268,8 @@ def draw():
         stylo.forward(50)
         stylo.left(90)
         stylo.forward(90-(45*sqrt(3)/2))
-        
-        
+
+  
 
 #procédure: organisation du programme
 def game():
@@ -283,20 +280,19 @@ def game():
     while replay == 1:
         reset()
         choose_word(length())
-        
     
         while go_again == 1:
-
             print("voici votre mot:")
             print ("".join(p_word))
             a = input("choisir une lettre: ")
             n = mistake()
-
-
+            
+            
             if n == 1:
                 choose_letter()
                 game_stage()
                 draw()
+        
             elif n == 2:
                 print("vous avez déja choisi cette lettre, essayez en une autre.")
             else :

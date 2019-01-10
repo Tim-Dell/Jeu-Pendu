@@ -17,7 +17,7 @@ def reset():
     chosen = []
     
 def length():
-    d = 0
+    global d
     print("voulez vous un mot; court, long ou infini?")
     print("")
     inp = input()
@@ -25,15 +25,15 @@ def length():
     if inp == "court" or inp == "Court" or inp == "COURT":
         d = 0
         print("Vous avez choisi:", inp)
-        return d
+      
     elif inp == "long" or inp == "Long" or inp == "LONG":
         d = 1
         print("Vous avez choisi:", inp)
-        return d
+        
     elif inp == "infini" or inp == "Infini" or inp == "INFINI":
         d = 2
         print("Vous avez choisi:", inp)
-        return d
+        
     else:
         print("Oops! Une erreur est survenu, entrez Court, long ou infini.")
         length()
@@ -42,8 +42,8 @@ def length():
     
 
 #procédure: choisi un mot ; crée une liste vide = liste joueur
-def choose_word(d):
-    
+def choose_word():
+    global d
     global word
     global p_word
     choice_w = [ [ "bol" , "sel" , "abri" , "clou" , "fuir" , "abime" , "aimer" ,\
@@ -175,7 +175,8 @@ def game():
     
     while replay == 1:
         reset()
-        choose_word(length())
+        length()
+        choose_word()
     
         while go_again == 1:
 

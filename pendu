@@ -3,7 +3,8 @@
 
 from random import *
 from copy import deepcopy
-
+from turtle import *
+from math import *
 
 def reset():
   

@@ -169,7 +169,7 @@ def again():
         print("Oops! Une erreur est survenu, entrez Oui ou Non")
         again ()    
      
- def draw():
+def draw():
     stylo = Turtle()
     stylo.width(4)
     stylo.ht()

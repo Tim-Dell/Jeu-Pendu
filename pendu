@@ -64,7 +64,7 @@ def choose_word():
              "heterogeneisant" , "autodetermination" , "commercialisation" ,\
              "deshumanisation" , "dysfonctionnelles" , "informatisation" ,\
              "intercommunautaire" , "neocolonialisme" , "anticonstitutionnel" ,\
-             "intergouvenementalisation" , "hippocampelephantocamelos" ] ]
+             "intergouvenementalisation" ] ]
 
     i = 0
     
@@ -73,7 +73,7 @@ def choose_word():
     elif d == 1:
         n = randint(0,23)
     else:
-        n = randint(0,13)
+        n = randint(0,12)
     
     word_s = choice_w[d][n]
     word = list(word_s)
